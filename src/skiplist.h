@@ -233,7 +233,6 @@ int SkipList<K,V>::insert_element(const K key,const V value)
 template<typename K, typename V>
 void SkipList<K, V>::display_list()
 {
-    std::cout<<"\n********************SkipList********************"<<"\n";
     for(int i = 0; i < _skip_list_level; ++i)
     {
         Node<K, V> *node = this->_header->forward[i];   // 每一层的开始节点
@@ -253,7 +252,7 @@ void SkipList<K, V>::display_list()
 template<typename K, typename V>
 void SkipList<K,V>::dump_file()
 {
-    std::cout<<"dump_file--------------------------"<<std::endl;
+    std::cout<<"--------------------------dump_file--------------------------"<<std::endl;
     _file_writer.open(STORE_FILE);  // 以写入流的方式打开文件
     Node<K,V> *node = this->_header->forward[0];    // 最底层的首结点
     while(node)
@@ -273,7 +272,6 @@ template<typename K, typename V>
 void SkipList<K, V>::load_file(const std::string& str)
 {
     _file_reader.open(str);
-    std::cout<<"load_file---------------------------"<<std::endl;
     std::string line;
     std::string *key = new std::string();
     std::string *value = new std::string();
@@ -401,7 +399,6 @@ void SkipList<K, V>::delete_element(K key)
 template<typename K,typename V>
 bool SkipList<K,V>::search_element(K key)
 {
-    std::cout<<"search_element--------------------------"<<std::endl;
     Node<K, V> *current = _header;
     for(int i = _skip_list_level; i >= 0 ; --i) // 从最高层开始
     {
