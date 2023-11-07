@@ -3,8 +3,7 @@
 #include "skiplist.h"
 using namespace std;
 
-void error_handling(const string& message)
-{
+void error_handling(const string& message) {
     cerr << message << endl;
     exit(1);
 }
